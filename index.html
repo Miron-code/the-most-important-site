@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Соц сеть</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<header>
+			<img src="images ава.jpg" class="avatar">
+			<h1>Свитолин Мирон</h1>
+			<p class="status" id="status">Живу ради жизни!</p>
+		</header>
+
+		<section class="interests">
+			<h2>Мои интересы</h2>
+			<div class="cards">
+				<div class="card">Игры</div>
+				<div class="card">Фильмы</div>
+				<div class="card">Музыка</div>
+				<div class="card">Чтение</div>
+			</div>
+		</section>
+
+		<section class="projects">
+			<h2>Мои проекты</h2>
+			<div class="projects-grid">
+			<a href="https://miron-code.github.io/Calendar.github.io/" target="_blank" class="project-card">Сайт "Календарь"</a>
+			<a href="https://miron-code.github.io/DarkLightTheme.github.io/" target="_blank" class="project-card">Светлая и тёмная тема</a>
+			<a href="https://miron-code.github.io/23February.github.io/" class="project-card">23 февраля</a>
+			<a href="https://miron-code.github.io/Registration-form.github.io/" class="project-card">Форма регистрации</a>
+			<a href="https://miron-code.github.io/PixelArt.github.io/" class="project-card">Пиксель арт</a>
+			<a href="https://miron-code.github.io/Vologda-uisine.gethub.io/" class="project-card">Вологодская кухня</a>
+			</div>
+		</section>
+
+		<section class="memes">
+			<h2>Любимые мемы</h2>
+			<div class="memes-grid">
+				<img src="мем1.png" class="meme hidden">
+				<img src="мем2.png" class="meme hidden">
+				<img src="мем3.jpg" class="meme hidden">
+				<img src="мем4.png" class="meme hidden">
+				<img src="мем5.webp" class="meme hidden">
+				<img src="мем6.jpg" class="meme hidden">
+			</div>
+		</section>
+
+		<div class="modal" id="modal">
+			<div class="modal-content">
+				<span class="close-btn" id="closeModal">&times;
+				</span>
+				<h3 id="modal-title">Мои интересы</h3>
+				<p id="modal-description">Описание...</p>
+			</div>
+		</div>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>
