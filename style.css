@@ -170,3 +170,91 @@
     transform: translateY(-5px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
   }
+
+  .figma-projects{
+    margin-bottom: 40px;
+    text-align: center;
+    text-align: left;
+  }
+
+  .figma-grid{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .figma-card{
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    width: 260px;
+    text-align: center;
+  }
+
+  .figma-card img{
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+
+  .figma-card{
+    margin-bottom: 10px;
+    font-size: 1.1em;
+  }
+
+  .figma-card .btn{
+    display: inline-block;
+    background: #0000FF;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+
+  .figma-card .btn:hover{
+    background: violet;
+  }
+
+  .countdown-container {
+    text-align: center;
+    margin: 30px 0;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+  }
+
+  #countdown {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+  }
+
+  .countdown-item {
+    background: #fff;
+    padding: 10px 15px;
+    border-radius: 10px;
+    min-width: 70px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .countdown-item span {
+    display: block;
+    text-align: center;
+  }
+
+  .countdown-item span:first-child {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #FF5722;
+  }
+
+  .countdown-label {
+    font-size: 0.9em;
+    color: #555;
+  }

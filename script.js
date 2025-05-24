@@ -55,3 +55,80 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   
+// Ожидаем полной загрузки DOM-дерева
+document.addEventListener('DOMContentLoaded', function() {
+    // ========== 1. НАСТРОЙКИ ТАЙМЕРА ==========
+    // Устанавливаем целевую дату (год, месяц-1, день, часы, минуты)
+    // Например: 1 января 2025 года, 00:00:00
+    const targetDate = new Date(2025, 7, 16, 0, 0, 0);
+    
+    // ========== 2. ПОЛУЧЕНИЕ ЭЛЕМЕНТОВ DOM ==========
+    const daysElement = document.getElementById('days');
+    const hoursElement = document.getElementById('hours');
+    const minutesElement = document.getElementById('minutes');
+    const secondsElement = document.getElementById('seconds');
+    const completeMessage = document.getElementById('countdown-complete');
+    const countdownDisplay = document.querySelector('.countdown-display');
+    
+    // ========== 3. ФУНКЦИЯ ОБНОВЛЕНИЯ ТАЙМЕРА ==========
+    function updateCountdown() {
+    // Получаем текущую дату и время (реальное, а не фиксированное)
+    const currentDate = new Date(); // Исправлено: теперь используется текущее время
+    
+    // Вычисляем разницу между целевой и текущей датой в миллисекундах
+    const timeRemaining = targetDate - currentDate;
+    
+    // Проверка завершения таймера
+    if (timeRemaining <= 0) {
+        countdownDisplay.style.display = 'none';
+        completeMessage.style.display = 'block';
+        clearInterval(countdownInterval);
+        return;
+    }
+    
+    // Расчет временных единиц
+    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+    
+    // Обновление интерфейса
+    daysElement.textContent = days.toString().padStart(2, '0');
+    hoursElement.textContent = hours.toString().padStart(2, '0');
+    minutesElement.textContent = minutes.toString().padStart(2, '0');
+    secondsElement.textContent = seconds.toString().padStart(2, '0');
+    
+    // Анимация при изменении секунд
+    if (secondsElement.dataset.lastValue !== seconds.toString()) {
+        secondsElement.style.transform = 'scale(1.2)';
+        setTimeout(() => {
+            secondsElement.style.transform = 'scale(1)';
+        }, 300);
+    }
+    secondsElement.dataset.lastValue = seconds.toString(); // Сохраняем текущее значение
+}
+    
+    // ========== 8. ИНИЦИАЛИЗАЦИЯ ТАЙМЕРА ==========
+    // Сразу вызываем функцию, чтобы избежать задержки в 1 секунду
+    updateCountdown();
+    
+    // Устанавливаем интервал обновления (каждую секунду)
+    const countdownInterval = setInterval(updateCountdown, 1000);
+    
+    // ========== 9. ДОПОЛНИТЕЛЬНЫЕ ФУНКЦИИ ==========
+    // Функция для изменения целевой даты (пример)
+    function setCustomDate(year, month, day, hours = 0, minutes = 0) {
+        targetDate = new Date(2025, 7, 16, 0, 0, 0);
+        // Сбрасываем отображение
+        countdownDisplay.style.display = 'flex';
+        completeMessage.style.display = 'none';
+        // Перезапускаем интервал
+        clearInterval(countdownInterval);
+        countdownInterval = setInterval(updateCountdown, 1000);
+        // Обновляем сразу
+        updateCountdown();
+    }
+    
+    // Пример использования:
+    // setCustomDate(2025, 12, 31, 23, 59); // Установит дату на 31 декабря 2025, 23:59
+});
